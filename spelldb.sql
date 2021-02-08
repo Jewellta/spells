@@ -1,4 +1,8 @@
+use sys;
+drop database if exists spells;
+
 create database spells ;
+
 use spells;
 
 create table users(
@@ -19,7 +23,9 @@ values
 
 create table user_spells(
 id int not null primary key auto_increment,
+userid int not null,
 foreign key (userid) references Users(Id),
+spell_id int not null,
 foreign key (spell_id) references spell(id)
 );
 
